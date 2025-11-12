@@ -22,6 +22,27 @@
             transform: scale(1.25);
             background-color: #fe8d62;
         }
+
+        .trophy{
+            opacity: 0;
+            position: fixed;
+            top: 52.5%;
+            font-size: 6rem;
+            left: 43%;
+        }
+
+        .trophy-container {
+            display: none;
+            background-color: white;
+            width: 9em;
+            height: 9em;
+            position: fixed;
+            top: 52%;
+            left: 42%;
+            border: 2px solid #a9a9a9;
+            border-radius: 70px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        }
     </style>
 </head>
 
@@ -46,15 +67,15 @@
             margin: 1em;">
         <div style="margin: 0.8em;"><!-- Score child -->
             Player X:
-            <span>0</span>
+            <span id="xScore">0</span>
         </div>
         <div style="margin: 0.8em;"><!-- Score child -->
             Draw:
-            <span>0</span>
+            <span id="drawScore">0</span>
         </div>
         <div style="margin: 0.8em;"><!-- Score child -->
             Player O:
-            <span>0</span>
+            <span id="oScore">0</span>
         </div>
     </div>
     <!-- Score box ended -->
@@ -95,6 +116,10 @@
         <button onclick="newGame()">New Game</button>
         <button onclick="resetGame()">Reset Scores</button>
     </div>
+    <div class="trophy-container" id="trophy-container">
+        <div class="trophy" id="trophy">🏆</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Button Div ended -->
     <script src="indexFE.js">
     </script>
