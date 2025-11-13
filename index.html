@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Tic Tac Toe:Game</title>
+    <title>Tic Tac Toe: Game</title>
     <style>
         .cell {
             width: 5em;
@@ -14,66 +14,115 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin:1em;
+            margin: 1em;
             transition: transform 0.2s background-color 0.2s;
         }
+
         .cell:hover {
             transform: scale(1.25);
             background-color: #fe8d62;
         }
-    </style>
 
+        .trophy{
+            opacity: 0;
+            position: fixed;
+            top: 52.5%;
+            font-size: 6rem;
+            left: 43%;
+        }
+
+        .trophy-container {
+            display: none;
+            background-color: white;
+            width: 9em;
+            height: 9em;
+            position: fixed;
+            top: 52%;
+            left: 42%;
+            border: 2px solid #a9a9a9;
+            border-radius: 70px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        }
+    </style>
 </head>
 
 <body style="display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;">
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;">
     <h1>Tic Tac Toe</h1>
-    <label>Player X's Turn</label>
-    <!-- Score box  -->
-    <div style="display: flex;
-    justify-content: center;
-    width: 20em;
-    align-items: center;
-    padding: 1.5em;
-    background-color: #fef3a7;
-    border-radius: 1em;
-    border: 2px solid #aaaaaa;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-    margin: 1em;">
-        <div style="margin: 0.8em;"><!-- Score box child  -->
+    <label>Player
+        <label id="playerTurnLabel">X</label> 's Turn</label>
+    <!-- Score box -->
+    <div style="
+            display: flex;
+            justify-content: center;
+            width: 20em;
+            align-items: center;
+            padding: 1.5em;
+            background-color: #fcf3a7;
+            border-radius: 1em;
+            box-shadow: 0 4px 10px rgba(0,0,0,1);
+            border: 2px solid #a9a9a9;
+            margin: 1em;">
+        <div style="margin: 0.8em;"><!-- Score child -->
             Player X:
-            <span>0</span>
+            <span id="xScore">0</span>
         </div>
-        <div style="margin: 0.8em;"><!-- Score box child  -->
-            Draw :
-            <span>0</span>
+        <div style="margin: 0.8em;"><!-- Score child -->
+            Draw:
+            <span id="drawScore">0</span>
         </div>
-        <div style="margin: 0.8em;"><!-- Score box child  -->
+        <div style="margin: 0.8em;"><!-- Score child -->
             Player O:
-            <span>0</span>
+            <span id="oScore">0</span>
         </div>
-    </div style="margin: 0.8em;"><!-- Score box ended  -->
-    <!-- O X Board -->
-    <div style="display: grid; grid-template-columns: repeat(3,100px);">
-        <div class="cell">1</div>
-        <div class="cell">2</div>
-        <div class="cell">3</div>
-        <div class="cell">4</div>
-        <div class="cell">5</div>
-        <div class="cell">6</div>
-        <div class="cell">7</div>
-        <div class="cell">8</div>
-        <div class="cell">9</div>
     </div>
-    <!-- O X Board ended -->
+    <!-- Score box ended -->
+    <!-- O X Board -->
+    <div style="display: grid;
+            grid-template-columns: repeat(3, 100px);">
+        <div class="cell" onclick="boardClicked(1)">
+            <label id="boardLabel1"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(2)">
+            <label id="boardLabel2"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(3)">
+            <label id="boardLabel3"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(4)">
+            <label id="boardLabel4"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(5)">
+            <label id="boardLabel5"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(6)">
+            <label id="boardLabel6"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(7)">
+            <label id="boardLabel7"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(8)">
+            <label id="boardLabel8"></label>
+        </div>
+        <div class="cell" onclick="boardClicked(9)">
+            <label id="boardLabel9"></label>
+        </div>
+    </div>
+    <!-- O X Board ended-->
     <!-- Button Div -->
     <div>
-        <Button>New Game</Button>
-        <button>Reset Scores</button>
+        <button onclick="newGame()">New Game</button>
+        <button onclick="resetGame()">Reset Scores</button>
     </div>
+    <div class="trophy-container" id="trophy-container">
+        <div class="trophy" id="trophy">🏆</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Button Div ended -->
+    <script src="indexFE.js">
+    </script>
 </body>
 
 </html>
